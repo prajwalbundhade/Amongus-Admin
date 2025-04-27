@@ -21,12 +21,12 @@ function SideBar() {
       {links.map((link) => (
         <Link key={link.to} to={link.to} aria-label={link.label}>
           <div
-            className={`flex items-center text-black-300 hover:text-green-800 cursor-pointer rounded-md p-2 mb-2 ${
+            className={`flex items-center text-black-300 hover:text-red-800 cursor-pointer rounded-md p-2 mb-2 ${
               location.pathname === link.to ||
               (location.pathname === "/Admin/Posts" && link.to === "/Admin/Posts") ? "bg-gray-200" : ""
             }`}
           >
-            <FontAwesomeIcon icon={link.icon} className="mr-3 text-green-500" />
+            <FontAwesomeIcon icon={link.icon} className="mr-3 text-red-500" />
             <span>{link.label}</span>
           </div>
         </Link>

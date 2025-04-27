@@ -43,7 +43,9 @@ app.use(bodyParser.json());
 app.use("/api", authRoutes);
 app.use("/api/posts", postRoutes);
 app.use('/api/order', orderRoutes);
-
+app.use('/api/welcome', (req, res) => {
+  res.send('<h2>Welcome to Among Us Dashboard API</h2>');
+});
 
 // // Initialize order field for all posts
 // app.post("/api/order/initialize", async (req, res) => {
@@ -63,5 +65,5 @@ app.use('/api/order', orderRoutes);
 //   }
 // });
 
-const PORT = process.env.PORT || 3021;
+const PORT = process.env.PORT || 3022;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

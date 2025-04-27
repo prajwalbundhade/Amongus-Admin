@@ -67,7 +67,7 @@ function Posts() {
   
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/posts/new-all-post"); // Updated URL
+      const response = await axios.get("http://localhost:3022/api/posts/new-all-post"); // Updated URL
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ function Posts() {
   };
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
+      await axios.delete(`http://localhost:3022/api/posts/${postId}`);
       Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
       fetchPosts();  // Refresh the list of posts after successful deletion
     } catch (error) {
@@ -120,7 +120,7 @@ function Posts() {
 
   // Update the order in the database via API
   try {
-    await axios.post("http://localhost:5000/api/order/update", {
+    await axios.post("http://localhost:3022/api/order/update", {
       draggedPostId: movedPost._id,
       targetPostId: reorderedPosts[destination.index]._id,
       newPosition: destination.index,
@@ -142,12 +142,12 @@ function Posts() {
           <div className="flex justify-between mb-4">
             <Link
               to="/Admin/Post/New"
-              className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600"
+              className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
             >
               <FontAwesomeIcon icon={faPlus} /> New Post
             </Link>
             <div className="flex items-center bg-white border rounded-lg shadow-md px-4 py-2">
-              <FontAwesomeIcon icon={faSearch} className="text-green-500 mr-2" />
+              <FontAwesomeIcon icon={faSearch} className="text-red-500 mr-2" />
               <input
                 type="text"
                 placeholder="Search"

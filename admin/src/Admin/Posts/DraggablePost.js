@@ -10,7 +10,7 @@ const DraggablePost = React.memo(({ post, index, handleDelete, handleEdit }) => 
     ? post.mediaContent[0].imageUrl 
     : post.imagePath && post.imagePath.length > 0 // Fallback for old data format
       ? post.imagePath[0]
-      : 'https://via.placeholder.com/150'; // Fallback image if no image is available
+      : 'https://placehold.co/600x400'; // Fallback image if no image is available
 
   return (
     <Draggable key={post._id} draggableId={post._id} index={index}>
