@@ -84,7 +84,7 @@ function AddPost() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    axios.post("http://localhost:5000/api/posts/new", formData, {
+    axios.post("http://localhost:3022/api/posts/new", formData, {
       headers: {
         Authorization: 'Bearer ' + AuthToken(),
       },
@@ -95,12 +95,9 @@ function AddPost() {
           title: 'Post Created',
           html: `
             Title: ${formData.title}<br>
-            Media Items: ${formData.mediaContent.length}<br>
-            Description: ${formData.description}<br>
-            Category: ${formData.category}<br>
-            State: ${formData.state}
           `,
         });
+        window.location.href = '/Admin/Posts';
         handleClear();
       })
       .catch((error) => {
@@ -138,7 +135,7 @@ function AddPost() {
       style={{ width: '900px' }}
       className="shadow-md flex-row px-1 mt-5 items-center pt-2 pb-2 mb-2 justify-center rounded-lg ml-10 bg-white"
     >
-      <h2 className="text-2xl font-semibold mb-4 text-center hover:text-green-500">Add New Post</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center hover:text-red-500">Add New Post</h2>
       <form onSubmit={handleSubmit} className="space-y-4 w-full p-1">
         {/* Title field */}
         <div className="flex flex-col">
@@ -343,7 +340,7 @@ function AddPost() {
         <div className="flex space-x-4">
           <button
             type="submit"
-            className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+            className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
           >
             Submit
           </button>

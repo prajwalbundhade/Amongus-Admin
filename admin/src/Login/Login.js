@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
+      const response = await axios.post("http://localhost:3022/api/login", {
         email,
         password,
       }); 
@@ -71,7 +71,7 @@ function Login() {
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
           <div className="text-center">
-            <button className="w-full bg-green-500 text-white p-2 rounded hover-bg-green-600" type="submit">
+            <button className="w-full bg-red-500 text-white p-2 rounded hover-bg-red-600" type="submit">
               Sign In
             </button>
           </div>

@@ -2,8 +2,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import AdminLayout from '../../layouts/AdminLayout';
 
-const EditPost = () => {
+const NewEditPost = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -30,7 +31,7 @@ const EditPost = () => {
     const fetchPostData = async () => {
       console.log("Fetching post with ID:", id);
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const response = await axios.get(`http://localhost:3022/api/posts/${id}`);
         const postData = response.data;
         
         // Convert old format to new format if necessary
@@ -113,7 +114,7 @@ const EditPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/posts/${id}`, formData);
+      await axios.put(`http://localhost:3022/api/posts/${id}`, formData);
       Swal.fire('Success', 'Post updated successfully', 'success');
       navigate('/Admin/Posts');
     } catch (error) {
@@ -147,7 +148,7 @@ const EditPost = () => {
       style={{ width: '900px' }}
       className="shadow-md flex-row px-1 mt-5 items-center pt-2 pb-2 mb-2 justify-center rounded-lg ml-10 bg-white"
     >
-      <h2 className="text-2xl font-semibold mb-4 text-center hover:text-green-500">Edit Post</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center hover:text-red-500">Edit Post</h2>
       <form onSubmit={handleSubmit} className="space-y-4 w-full p-1">
         {/* Title field */}
         <div className="flex flex-col">
@@ -352,7 +353,7 @@ const EditPost = () => {
         <div className="flex space-x-4">
           <button
             type="submit"
-            className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+            className="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300"
           >
             Update Post
           </button>
@@ -368,5 +369,7 @@ const EditPost = () => {
     </div>
   );
 };
-
+function EditPost() {
+  return <AdminLayout Content={<NewEditPost />} />;
+}
 export default EditPost;
