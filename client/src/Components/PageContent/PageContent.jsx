@@ -12,7 +12,7 @@ const PageContent = () => {
   useEffect(() => {
     const fetchCardsData = async () => {
       try {
-        const response = await axios.get('http://localhost:3022/api/posts/new-all-post');
+        const response = await axios.get('http://amongusdashboard.craftifyproductions.com/api/posts/new-all-post');
         setCardsData(response.data);
         setLoading(false);
       } catch (error) {
