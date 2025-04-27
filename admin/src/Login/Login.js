@@ -12,7 +12,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://amongusdashboard.craftifyproductions.com/api/login", {
+      const response = await axios.post("https://amongusdashboard.craftifyproductions.com/api/login", {
         email,
         password,
       }); 
