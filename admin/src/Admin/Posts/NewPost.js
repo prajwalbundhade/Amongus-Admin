@@ -84,7 +84,7 @@ function AddPost() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    axios.post("http://amongusdashboard.craftifyproductions.com/api/posts/new", formData, {
+    axios.post("https://amongusdashboard.craftifyproductions.com/api/posts/new", formData, {
       headers: {
         Authorization: 'Bearer ' + AuthToken(),
       },

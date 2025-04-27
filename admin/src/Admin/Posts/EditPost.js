@@ -31,7 +31,7 @@ const NewEditPost = () => {
     const fetchPostData = async () => {
       console.log("Fetching post with ID:", id);
       try {
-        const response = await axios.get(`http://amongusdashboard.craftifyproductions.com/api/posts/${id}`);
+        const response = await axios.get(`https://amongusdashboard.craftifyproductions.com/api/posts/${id}`);
         const postData = response.data;
         
         // Convert old format to new format if necessary
@@ -114,7 +114,7 @@ const NewEditPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://amongusdashboard.craftifyproductions.com/api/posts/${id}`, formData);
+      await axios.put(`https://amongusdashboard.craftifyproductions.com/api/posts/${id}`, formData);
       Swal.fire('Success', 'Post updated successfully', 'success');
       navigate('/Admin/Posts');
     } catch (error) {
