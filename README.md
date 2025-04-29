@@ -1,1 +1,1 @@
-Sample readme
+This is Admin Panel
